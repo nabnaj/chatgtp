@@ -1,45 +1,34 @@
 # chatgtp
 
-This repository is organized as a **three-stage Python workflow** so newcomers can onboard incrementally.
+This repository is currently a minimal scaffold with Git initialized and no application source code yet.
 
-## Workflow overview (3 stages)
+## Current structure
 
-### Stage 1 — Foundation ✅
-Goal: establish a runnable Python project skeleton and development conventions.
+- `.git/`: Git metadata and history.
+- `.gitkeep`: Placeholder file to keep the repository non-empty.
 
-- Project packaging via `pyproject.toml`
-- Source layout under `src/chatgtp/`
-- CLI entrypoint for sanity checks
+## What to know right now
 
-### Stage 2 — Core implementation 🚧 (started)
-Goal: add the actual application modules and domain logic.
+1. There is no runtime code, build system, or dependency manifest yet.
+2. The branch `work` currently contains only the initial "Initialize repository" commit.
+3. The project is ready for first-commit setup (language/runtime choice, tooling, and baseline docs).
 
-Current simple example:
+## Suggested next steps for newcomers
 
-- `src/chatgtp/core.py` includes a tiny domain model (`MessageRequest`) and logic (`build_response`)
-- CLI calls the Stage 2 logic to show how modules connect
-- Unit tests in `tests/test_core.py` validate normal and fallback behavior
+- Add a short architecture-and-goals section once implementation starts.
+- Choose a stack and add core project files:
+  - JavaScript/TypeScript: `package.json`, `tsconfig.json`, `src/`
+  - Python: `pyproject.toml`, `src/`, `tests/`
+  - Go: `go.mod`, `cmd/`, `internal/`
+- Add developer experience basics early:
+  - `README` usage instructions
+  - lint/format config
+  - test runner setup and CI workflow
+  - `.env.example` for configuration conventions
 
-### Stage 3 — Hardening and delivery
-Goal: make the project production-ready.
+## Learning path once code is added
 
-- Add lint/format/type-check automation
-- Add CI workflow for tests and quality gates
-- Add release/versioning and deployment docs
-
-## Current repository structure
-
-- `pyproject.toml`: Python project metadata and packaging config
-- `src/chatgtp/__init__.py`: package marker + version
-- `src/chatgtp/__main__.py`: CLI entrypoint invoking Stage 2 demo flow
-- `src/chatgtp/core.py`: Stage 2 sample domain model and logic
-- `tests/test_core.py`: Stage 2 unit tests
-- `README.md`: onboarding and staged workflow
-- `.gitkeep`: placeholder from initial scaffold
-
-## Run the demo and tests
-
-```bash
-PYTHONPATH=src python -m chatgtp
-PYTHONPATH=src python -m unittest discover -s tests -p 'test_*.py'
-```
+1. Read entrypoints first (e.g., `src/main.*`, app bootstrap).
+2. Follow request/data flow through core modules.
+3. Review tests to learn expected behavior and edge cases.
+4. Inspect tooling (`Makefile`, CI, linters) to match team standards.
